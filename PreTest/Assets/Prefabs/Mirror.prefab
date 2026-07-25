@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2302216258808818027}
   - component: {fileID: 2237253120355976338}
   - component: {fileID: 66474225471975027}
+  - component: {fileID: 4143605607421884403}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -111,6 +112,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4143605607421884403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418506122823428224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf17f417b5e34affa40470b6a35501a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mirror
 --- !u!1 &7335509556109147236
 GameObject:
   m_ObjectHideFlags: 0
