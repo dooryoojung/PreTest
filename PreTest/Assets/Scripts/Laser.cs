@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-    private const int MaxReflectCount = 10;
+    private const int MaxReflectCount = 11;
     
     [SerializeField] private Transform _muzzle;
     [SerializeField] private LineRenderer _lineRenderer;
