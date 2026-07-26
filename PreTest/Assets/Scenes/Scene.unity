@@ -3321,9 +3321,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MirrorPlacer
   _mirrorPrefab: {fileID: 7335509556109147236, guid: 39ccb061f3420bb43a756d5a3d22fee3, type: 3}
-  _camera: {fileID: 330585545}
-  _ground: {fileID: 553042244}
   _mirrorContainer: {fileID: 1331862686}
+  _ground: {fileID: 553042244}
+  _camera: {fileID: 330585545}
   _rotateStep: 15
   _tiltStep: 15
 --- !u!1 &1390468423
@@ -5024,7 +5024,7 @@ MonoBehaviour:
     (x\uCD95)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c8ccbcf6b5304210b2af3bcf0305a20, type: 2}
-  m_sharedMaterial: {fileID: -6323147137234321921, guid: 5c8ccbcf6b5304210b2af3bcf0305a20, type: 2}
+  m_sharedMaterial: {fileID: 1084554000203943202, guid: 5c8ccbcf6b5304210b2af3bcf0305a20, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
