@@ -14,7 +14,6 @@ public class Receiver : MonoBehaviour
     public void HitReceiver()
     {
         _isHitFrame = true;
-        Debug.Log("리시버 충돌");
     }
 
     private void LateUpdate()

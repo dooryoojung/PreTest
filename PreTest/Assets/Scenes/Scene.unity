@@ -2861,7 +2861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1583740471
 Transform:
   m_ObjectHideFlags: 0
@@ -3015,6 +3015,7 @@ GameObject:
   - component: {fileID: 1787954704}
   - component: {fileID: 1787954703}
   - component: {fileID: 1787954706}
+  - component: {fileID: 1787954707}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -3126,6 +3127,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bac1174e7e924676bf99fa6a93fe35d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Receiver
+--- !u!114 &1787954707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787954701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69e3fb803baa94d5583794f59f868f35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SuccessHit
+  _receiver: {fileID: 1787954706}
+  _receiverRenderer: {fileID: 1787954704}
+  _lineRenderer: {fileID: 1179415224}
 --- !u!1 &1820953372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1418506122823428224, guid: 39ccb061f3420bb43a756d5a3d22fee3, type: 3}
