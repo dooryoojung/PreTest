@@ -35,20 +35,18 @@ public class Laser : MonoBehaviour
 
             _points.Add(hit.point);
 
-            var mirror = hit.collider.GetComponent<Mirror>();
-            if (mirror != null)
+            var reflective = hit.collider.GetComponent<IReflective>();
+            if (reflective != null)
             {
-                direction = mirror.Reflect(direction, hit.normal);
+                var result = reflective.OnLaserHit(direction, hit.normal);
+                if (result.ShouldContinue)
+                {
+                    direction = result.NextDirection;
 
-                // 반사한 오브젝트와 다시 충돌할 수 있어서 약간 띄움
-                origin = hit.point + direction * 0.001f;
-                continue;
-            }
-            
-            var receiver = hit.collider.GetComponent<Receiver>();
-            if (receiver != null)
-            {
-                receiver.HitReceiver();
+                    // 반사한 오브젝트와 다시 충돌할 수 있어서 약간 띄움
+                    origin = hit.point + direction * 0.001f;
+                    continue;
+                }
             }
 
             break;

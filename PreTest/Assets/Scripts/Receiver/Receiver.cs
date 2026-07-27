@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Receiver : MonoBehaviour
+public class Receiver : MonoBehaviour, IReflective
 {
     // 이번 프레임에 레이저가 닿았는지
     private bool _isHitFrame;
@@ -14,6 +14,12 @@ public class Receiver : MonoBehaviour
     public void HitReceiver()
     {
         _isHitFrame = true;
+    }
+
+    public LaserHitResult OnLaserHit(Vector3 dir, Vector3 normal)
+    {
+        HitReceiver();
+        return LaserHitResult.Stop();
     }
 
     private void LateUpdate()
