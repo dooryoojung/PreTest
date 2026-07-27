@@ -11,6 +11,7 @@ public class MirrorPlacer : MonoBehaviour
     
     [SerializeField] private float _rotateStep = 15f;
     [SerializeField] private float _tiltStep = 15f;
+    [SerializeField] private int _maxMirrorCount = 12;
 
     private bool _isPlacing;
     private bool _isDragging;
@@ -18,6 +19,9 @@ public class MirrorPlacer : MonoBehaviour
     private readonly List<GameObject> _spawnedMirrors = new();
     
     private MirrorController _selectedController;
+
+    public int MirrorCount => _spawnedMirrors.Count;
+    public int MaxMirrorCount => _maxMirrorCount;
 
     private void Awake()
     {
@@ -36,6 +40,8 @@ public class MirrorPlacer : MonoBehaviour
 
     public void OnClickAddMirror()
     {
+        if (_spawnedMirrors.Count >= _maxMirrorCount) return;
+
         Deselect();
         _isPlacing = true;
     }

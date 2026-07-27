@@ -8,10 +8,12 @@ public static class LaserPath
         Vector3 direction,
         float maxDistance,
         int maxSegments,
-        List<Vector3> result)
+        List<Vector3> result,
+        out int reflectionCount)
     {
         result.Clear();
         result.Add(origin);
+        reflectionCount = 0;
 
         for (var segment = 0; segment < maxSegments; segment++)
         {
@@ -29,6 +31,7 @@ public static class LaserPath
                 var reflectResult = reflective.OnLaserHit(direction, hit.normal);
                 if (reflectResult.ShouldContinue)
                 {
+                    reflectionCount++;
                     direction = reflectResult.NextDir;
 
                     // 반사한 오브젝트와 다시 충돌할 수 있어서 약간 띄움
