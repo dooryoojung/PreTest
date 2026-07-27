@@ -31,10 +31,10 @@ public class MirrorController : MonoBehaviour
         transform.position = position;
     }
 
-    // y축 회전
+    // 자신의 y축 기준 회전
     public void Spin(float degrees)
     {
-        transform.Rotate(Vector3.up, degrees, Space.World);
+        transform.Rotate(Vector3.up, degrees, Space.Self);
     }
 
     // x축 기울이기

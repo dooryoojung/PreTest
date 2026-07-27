@@ -67,9 +67,9 @@ public class MirrorPlacer : MonoBehaviour
 
         if (_isPlacing)
         {
-            if (TryGetGroundPoint(out var point))
+            if (TryGetGroundPoint(out var point, out var normal))
             {
-                PlaceMirror(point);
+                PlaceMirror(point, normal);
                 _isPlacing = false;
             }
             return;
@@ -100,7 +100,7 @@ public class MirrorPlacer : MonoBehaviour
     {
         if (_selectedController == null) return;
 
-        if (TryGetGroundPoint(out var point))
+        if (TryGetGroundPoint(out var point, out _))
         {
             _selectedController.MoveTo(point);
         }
@@ -119,9 +119,11 @@ public class MirrorPlacer : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) _selectedController.Tilt(_tiltStep);
     }
 
-    private void PlaceMirror(Vector3 position)
+    private void PlaceMirror(Vector3 position, Vector3 groundNormal)
     {
-        var instance = Instantiate(_mirrorPrefab, position, Quaternion.identity, _mirrorContainer);
+        // 선택한 표면의 법선에 맞춰 수직으로 생성
+        var rotation = Quaternion.FromToRotation(Vector3.up, groundNormal);
+        var instance = Instantiate(_mirrorPrefab, position, rotation, _mirrorContainer);
         instance.AddComponent<MirrorController>();
         _spawnedMirrors.Add(instance);
     }
@@ -143,17 +145,19 @@ public class MirrorPlacer : MonoBehaviour
     }
 
     // 실제 바닥 콜라이더에 Raycast -> 벽 관통 막고 바닥에만 배치
-    private bool TryGetGroundPoint(out Vector3 point)
+    private bool TryGetGroundPoint(out Vector3 point, out Vector3 normal)
     {
         var ray = _camera.ScreenPointToRay(Input.mousePosition);
 
         if (Physics.Raycast(ray, out var hit) && hit.transform.IsChildOf(_ground))
         {
             point = hit.point;
+            normal = hit.normal;
             return true;
         }
 
         point = default;
+        normal = Vector3.up;
         return false;
     }
 }
