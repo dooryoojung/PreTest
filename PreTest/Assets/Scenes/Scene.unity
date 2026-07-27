@@ -3131,10 +3131,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 634090712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 220}
-  m_SizeDelta: {x: 500, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1171862632
 MonoBehaviour:
@@ -3191,7 +3191,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4756,7 +4756,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -4814,10 +4814,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 634090712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -150, y: 190}
-  m_SizeDelta: {x: 500, y: 30}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -100, y: -60}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2049071893
 GameObject:
@@ -5318,10 +5318,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 634090712}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: 260}
-  m_SizeDelta: {x: 600, y: 30}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 270, y: -30}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2135998893
 MonoBehaviour:
@@ -5343,8 +5343,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBBF8\uB7EC\uD68C\uC804 - Q/W : \uC88C\uC6B0\uD68C\uC804(y\uCD95) E/R
-    : \uC704\uC544\uB798 \uAE30\uC6B8\uAE30 (x\uCD95)"
+  m_text: "\uBBF8\uB7EC\uC870\uC791 - \uBBF8\uB7EC \uCD94\uAC00 \uD6C4 \uCD94\uAC00\uB41C
+    \uBBF8\uB7EC \uC120\uD0DD \uD6C4 \uC870\uC791\n\uBBF8\uB7EC\uD68C\uC804 - Q/W
+    : \uC88C\uC6B0\uD68C\uC804(y\uCD95) E/R : \uC704\uC544\uB798 \uAE30\uC6B8\uAE30
+    (x\uCD95)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5c8ccbcf6b5304210b2af3bcf0305a20, type: 2}
   m_sharedMaterial: {fileID: 1084554000203943202, guid: 5c8ccbcf6b5304210b2af3bcf0305a20, type: 2}
@@ -5371,13 +5373,13 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 18
+  m_fontSizeBase: 18
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
