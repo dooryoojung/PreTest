@@ -11,14 +11,14 @@ Laser, MirrorPlacer -> UiManager -> Canvas Text
 
 ## 2. 클래스별 역할
 - **Laser**: `_muzzle` 위치/방향을 매 프레임 `LaserPath.Compute()`에 넘기고, 반환된 점 목록을 `LineRenderer`로 그림. 경로는 매 프레임 처음부터 다시 계산, 반사 경로가 실시간으로 반영되며 Receiver의 자동 복귀도 성립
-- **LaserPath**: `Physics.Raycast`로 충돌 판정, 충돌 대상이 `IReflective` -> `OnLaserHit()`을 호출해 반사. 반사 횟수는 최대 10회까지 제한하는 정적 클래스
+- **LaserPath**: `Physics.Raycast`로 충돌 판정, 충돌 대상이 `IReflective`면 `OnLaserHit()`을 호출해 반사. 10회 반사 시 반사종료
 - **IReflective / LaserHitResult**: `Mirror`, `Receiver`가 각각 구현, 새로운 상호작용 오브젝트를 추가해도 `Laser`/`LaserPath` 코드는 수정할 필요 없음
 - **Mirror**: 정반사 계산(`Vector3.Reflect`)
 - **MirrorController**: 개별 거울 인스턴스의 Transform 조작 (`Select`/`Deselect`/`MoveTo`/`Spin`/`Tilt`)
 - **MirrorPlacer**: 배치/선택/드래그 상태 머신, 그라운드 Raycast, 회전 단축키
 - **Receiver**: `LateUpdate`에서 현재 프레임에서 충돌 여부와 직전 프레임 비교해, 상태가 바뀐 순간에만 `OnActivationChanged` 이벤트 발생
 - **SuccessHit**: 리시버에 레이저 닿았을때 리시버와 레이저 색상 변경
-- **UIManager**: 반사 횟수, 미러 갯수를 매 프레임 읽어 Canvas 텍스트에 표시
+- **UIManager**: 반사 횟수, 미러 갯수 값이 바뀐 경우에만 Canvas 텍스트 갱신
 
 ---
 
@@ -48,7 +48,8 @@ Laser, MirrorPlacer -> UiManager -> Canvas Text
 - **거울 프리팹 구조**: 콜라이더 있는 실제 메시는 자식에, 배치/회전 피벗은 부모에 배치됨. 피벗을 거울의 "접지면"으로 고정해두면 표면 법선에 맞춰 회전 계산(`Quaternion.FromToRotation`) 성립
 - **Spin/Tilt가 로컬 축 기준인 이유**: 씬이 완전한 평면이 아니라 약 70도 기울어진 그라운드로 나뉨. 기울어진 그라운드 위 거울을 월드 Y축 기준으로 돌리면 피벗은 고정된 채 몸체가 월드 수직축을 중심으로 원을 그리며 돌아 표면을 파고드는 문제 발생, 확인 후 로컬 축(Space.Self) 기준으로 수정
 - **성공 연출 방식**: 리시버는 색상 그대로 변경, 레이저 LineRenderer는 Emission 색의 Hue만 바꾸고 채도/밝기 유지. 원래 색의 발광 강도까지 덮어쓰면 레이저가 발광하지 않아 잘 보이지 않음
-- **거울 최대 개수 제한**: 반사 자체가 최대 10회로 제한되어 있어 거울이 그 이상이어도 반사하지 못하므로 여유만 두고 의미 없이 늘어나는 것을 막음 -> 짧은 시간에 대량 생성/파괴되는 상황이 아니라 풀링의 이점 없다고 판단해 `Instantiate` 사용
+- **거울 최대 개수 제한**: 반사 자체가 최대 10회로 제한되어 있어 거울이 그 이상이어도 반사하지 못하므로 여유만 두고 의미 없이 늘어나는 것을 막음 -> 짧은 시간에 대량 생성/파괴되는 상황이 아니라 풀링
+- **UIManager 값이 바뀔 때만 갱신**: 값이 변경되지 않았으면 변경하지 않음
 
 ---
 

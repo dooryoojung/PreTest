@@ -9,9 +9,21 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TMP_Text _reflectCountText;
     [SerializeField] private TMP_Text _mirrorCountText;
 
+    private int _lastReflectCount = -1;
+    private int _lastMirrorCount = -1;
+
     private void Update()
     {
-        _reflectCountText.text = $"반사횟수: {_laser.ReflectCount}/{Laser.MaxReflections}회";
-        _mirrorCountText.text = $"미러갯수: {_mirrorPlacer.MirrorCount}/{_mirrorPlacer.MaxMirrorCount}개";
+        if (_laser.ReflectCount != _lastReflectCount)
+        {
+            _lastReflectCount = _laser.ReflectCount;
+            _reflectCountText.text = $"반사횟수: {_lastReflectCount}/{Laser.MaxReflections}회";
+        }
+
+        if (_mirrorPlacer.MirrorCount != _lastMirrorCount)
+        {
+            _lastMirrorCount = _mirrorPlacer.MirrorCount;
+            _mirrorCountText.text = $"미러갯수: {_lastMirrorCount}/{_mirrorPlacer.MaxMirrorCount}개";
+        }
     }
 }

@@ -133,6 +133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5197129553395946122}
+  - component: {fileID: 8481062736512847393}
   m_Layer: 0
   m_Name: Mirror
   m_TagString: Untagged
@@ -156,3 +157,15 @@ Transform:
   - {fileID: 3313976052852523358}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8481062736512847393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7335509556109147236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4d37f929a3a4b99bbd39dd5c506146, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::MirrorController

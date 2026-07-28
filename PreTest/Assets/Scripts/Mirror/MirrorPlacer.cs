@@ -130,7 +130,6 @@ public class MirrorPlacer : MonoBehaviour
         // 선택한 표면의 법선에 맞춰 수직으로 생성
         var rotation = Quaternion.FromToRotation(Vector3.up, groundNormal);
         var instance = Instantiate(_mirrorPrefab, position, rotation, _mirrorContainer);
-        instance.AddComponent<MirrorController>();
         _spawnedMirrors.Add(instance);
     }
 

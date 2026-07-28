@@ -29,7 +29,9 @@ public static class LaserPath
             if (reflective != null)
             {
                 var reflectResult = reflective.OnLaserHit(direction, hit.normal);
-                if (reflectResult.ShouldContinue)
+
+                // 10회 반사시 반사 종료
+                if (reflectResult.ShouldContinue && reflectionCount < 10)
                 {
                     reflectionCount++;
                     direction = reflectResult.NextDir;
