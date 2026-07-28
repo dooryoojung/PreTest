@@ -61,3 +61,18 @@ Laser, MirrorPlacer -> UiManager -> Canvas Text
 - [x] Receiver 상태 변화 + 닿지 않으면 자동 복귀
 - [x] Mirror 플레이타임 중 설치 가능 (UI 버튼 + 클릭)
 - [x] Mirror Position/Rotation 조작 가능 (드래그 + Q/W/E/R)
+
+---
+
+## 6. 테스트
+
+코드용 asmdef(`Assets/Scripts/PreTest.Scripts.asmdef`), 테스트용 asmdef(`Assets/Tests/Tests.asmdef`, Editor 전용) 생성
+
+- **대상**: `LaserPath.Compute()` -> 씬 구성 없이 콜라이더로 검증 가능
+- **파일**: `Assets/Tests/LaserPathTest.cs`
+- **검증 항목**
+  - 충돌 없을 때 레이저 최대거리까지 그려지고 반사 없음
+  - 미러 아닌 오브젝트에 맞으면 그 자리에서 레이저 종료
+  - 미러 충돌시 레이저 반사 카운트 1 증가
+  - 반사 10회 초과 시 반사 종료
+- **실행**: `Window > General > Test Runner` > `EditMode` 탭 > `Run All`
